@@ -16,10 +16,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 file(GLOB NEDITLIB_SRC CONFIGURE_DEPENDS 
 	"NEditLib/src/*.cpp"
 	"NEditLib/src/Core/*.cpp"
+	"NEditLib/src/Editor/*.cpp"
+	"NEditLib/src/Utility/*.cpp"
 )
 file(GLOB NEDITLIB_HDR CONFIGURE_DEPENDS 
 	"NEditLib/include/*.h"
 	"NEditLib/src/Core/*.h"
+	"NEditLib/src/Editor/*.h"
+	"NEditLib/src/Nodes/*.h"
+	"NEditLib/src/Utility/*.h"
 )
 
 add_library(NEditLib STATIC ${NEDITLIB_SRC})

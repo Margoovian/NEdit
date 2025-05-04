@@ -74,3 +74,6 @@ target_include_directories(ImGui PUBLIC ${imgui_external_SOURCE_DIR} ${imgui_nod
 target_link_libraries(ImGui PRIVATE SDL2::SDL2)
 
 ###################################################################
+
+
+add_subdirectory(${imgui_node_editor_external_SOURCE_DIR}/examples)

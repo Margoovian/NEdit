@@ -1,5 +1,5 @@
 #include <Test.h>
-#include <Core/Editor.h>
+#include <Editor/Editor.h>
 #include <iostream>
 
 int main()

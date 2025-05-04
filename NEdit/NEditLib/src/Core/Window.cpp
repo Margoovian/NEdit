@@ -5,7 +5,7 @@
 #include <backends/imgui_impl_sdl.h>
 #include <backends/imgui_impl_sdlrenderer.h>
 
-NEDIT_INTERNAL_NAMESPACE_START
+NEDIT_INTERNAL_NAMESPACE_START();
 
 Window::Window(const WindowContext Context)
 {
@@ -31,6 +31,8 @@ void Window::Start()
 
 	while (m_Running)
 	{
+
+		m_DeltaTime.Tick();
 
 		if (ProcessInternal())
 		{
@@ -144,7 +146,7 @@ void Window::RenderInternal()
 	ImGui_ImplSDL2_NewFrame();
 	ImGui::NewFrame();
 
-	Render();
+	Render(m_DeltaTime.Delta());
 
 	// Get ImGuiIO
 	ImGuiIO& io = ImGui::GetIO();
@@ -180,7 +182,7 @@ bool Window::ProcessInternal()
 			m_Running = false;
 	}
 	
-	Process();
+	Process(m_DeltaTime.Delta());
 
 	if (SDL_GetWindowFlags(GetWindow()) & SDL_WINDOW_MINIMIZED)
 	{
@@ -192,4 +194,4 @@ bool Window::ProcessInternal()
 
 }
 
-NEDIT_NAMESPACE_END
+NEDIT_NAMESPACE_END();
